@@ -41,7 +41,7 @@ class Train(Resource):
 
     def post (self,name):
         data = request.get_json()
-        train = {'name': name, 'age': data['age'],'gender':data['gender'],'no of ticket':data['no of ticket'],'seater or sleeper':data['general or sleaper or ac'],'mode of transport':data['mode of transport'],'phone no':data['phone no']}
+        train = {'name': name, 'age': data['age'],'gender':data['gender'],'no of ticket':data['no of ticket'],'general or sleaper or ac':data['general or sleaper or ac'],'mode of transport':data['mode of transport'],'phone no':data['phone no']}
 
         tickets.append(train)
         return train
@@ -52,7 +52,7 @@ class Train(Resource):
         return {'message': 'train ticket  deleted'}
     def put (self,name):
         data = request.get_json()
-        train = {'name': name, 'age': data['age'],'gender':data['gender'],'no of ticket':data['no of ticket'],'seater or sleeper':data['general or sleaper or ac'],'mode of transport':data['mode of transport'],'phone no':data['phone no']}
+        train = {'name': name, 'age': data['age'],'gender':data['gender'],'no of ticket':data['no of ticket'],'general or sleaper or ac':data['general or sleaper or ac'],'mode of transport':data['mode of transport'],'phone no':data['phone no']}
 
         tickets.append(train)
         return train
@@ -67,7 +67,7 @@ class Flight(Resource):
 
     def post (self,name):
         data = request.get_json()
-        flight = {'name': name, 'age': data['age'],'gender':data['gender'],'no of ticket':data['no of ticket'],'seater or sleeper':data['general or sleaper or first'],'mode of transport':data['mode of transport'],'phone no':data['phone no']}
+        flight = {'name': name, 'age': data['age'],'gender':data['gender'],'no of ticket':data['no of ticket'],'economic or business or first':data['economic or business or first],'mode of transport':data['mode of transport'],'phone no':data['phone no']}
 
         tickets.append(flight)
         return flight
@@ -78,19 +78,19 @@ class Flight(Resource):
         return {'message': 'flight ticket  deleted'}
     def put (self,name):
         data = request.get_json()
-        flight = {'name': name, 'age': data['age'],'gender':data['gender'],'no of ticket':data['no of ticket'],'seater or sleeper':data['economics or business or first '],'mode of transport':data['mode of transport'],'phone no':data['phone no']}
+        flight = {'name': name, 'age': data['age'],'gender':data['gender'],'no of ticket':data['no of ticket'],'economic or business or first':data['economic or business or first '],'mode of transport':data['mode of transport'],'phone no':data['phone no']}
 
         tickets.append(flight)
         return flight
 
-class ItemList(Resource):
+class List(Resource):
      def get(self):
         return {'tickets': tickets}
 
 api.add_resource(BUS, '/bus/<string:name>')
 api.add_resource(Train, '/train/<string:name>')
 api.add_resource(Flight, '/flight/<string:name>')
-api.add_resource(ItemList, '/tickets')
+api.add_resource(List, '/tickets')
 
 if __name__ == '__main__':
     app.run(debug=True)
